@@ -7,7 +7,7 @@
   Gatsby's starter with Bulma, Bloomer, Netlify
 </h1>
 
-## Features
+## :fire: Features
 
 - Based on [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default)
 - Sass preprocessor (with [gatsby-plugin-sass](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sass))
@@ -26,6 +26,6 @@ Run it by :
 gatsby develop
 ```
 
-## 💫 Deploy
+## :dizzy: Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thnukid/gatsby-starter-netlify-pwa)
