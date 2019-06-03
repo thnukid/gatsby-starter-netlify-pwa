@@ -1,0 +1,50 @@
+{
+  "name": "gatsby-starter-netlify-pwa",
+  "description": "Gatsby starter with Bulma, Bloomer, Netlify",
+  "version": "1.0.0",
+  "author": "Eric Bartholemy <eric@kabisa.nl>",
+  "dependencies": {
+    "bloomer": "^0.6.5",
+    "bulma": "^0.7.5",
+    "gatsby": "^2.0.0",
+    "gatsby-image": "^2.1.2",
+    "gatsby-plugin-catch-links": "^2.0.15",
+    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-netlify": "^2.0.17",
+    "gatsby-plugin-netlify-cache": "^1.2.0",
+    "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-sass": "^2.0.1",
+    "gatsby-plugin-sharp": "^2.1.3",
+    "gatsby-source-filesystem": "^2.0.38",
+    "gatsby-transformer-sharp": "^2.1.21",
+    "node-sass": "^4.9.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby",
+    "bulma",
+    "bloomer",
+    "netlify",
+    "pwa"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "devDependencies": {
+    "prettier": "^1.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thnukid/gatsby-starter-netlify-pwa"
+  }
+}
