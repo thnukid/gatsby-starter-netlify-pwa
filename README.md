@@ -12,6 +12,7 @@
 - Based on [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default)
 - Sass preprocessor (with [gatsby-plugin-sass](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sass))
 - Supports Gatsby-image
+- Shows an alert box, when a service worker is outdated and refreshes the app
 - [Bulma CSS Framework](https://bulma.io/)
 - [Bloomer](https://bloomer.js.org)
 - [gatsby-plugin-netlify-cache](https://github.com/axe312ger/gatsby-plugin-netlify-cache)
@@ -20,10 +21,16 @@
 
 ## :rocket: Dev environment
 
-Run it by :
+Run it by:
 
 ```sh
-gatsby develop
+yarn develop
+```
+
+Using as a starter template:
+
+```sh
+gatsby new my-new-project https://github.com/thnukid/gatsby-starter-netlify-pwa
 ```
 
 ## :dizzy: Deploy
