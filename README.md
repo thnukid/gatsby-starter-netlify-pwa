@@ -12,6 +12,7 @@
 - Removed [Bulma CSS Framework](https://bulma.io/)
 - Removed [Bloomer](https://bloomer.js.org))
 - Added [Material-Ui](https://material-ui.com/)
+- Added [SEO with OpenGraph + Twitter ](https://github.com/LekoArts/gatsby-starter-prismic) based on `siteMetadata` in `gatsby-config.js`
 
 ## :fire: Features 1.0.0
 
