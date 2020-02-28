@@ -1,8 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby with Material-Ui and Netlify",
+    title: "Gatsby Starter",
+    titleTemplate: "%s · Material-Ui + Netlify",
     description: "The start of a new journey",
-    author: `@thnukid`,
+    siteUrl: "http://localhost:8000", // No trailing slash allowed!
+    image: "src/images/gatsby-icon.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@thnukid",
+    facebookPagename: "thnukid",
+    ogLocale: "en_US",
+    siteLocale: 'en', // Language Tag on <html> element
   },
   plugins: [
     "gatsby-plugin-top-layout",
@@ -15,8 +21,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -29,6 +33,8 @@ module.exports = {
         icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
       },
     },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-sass",
     "gatsby-plugin-offline",
     "gatsby-plugin-netlify-cache",
