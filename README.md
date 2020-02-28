@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's starter with Bulma, Bloomer, Netlify
+  Gatsby's starter with Material-Ui and Netlify
 </h1>
 
 ## :fire: Features 2.0.0
