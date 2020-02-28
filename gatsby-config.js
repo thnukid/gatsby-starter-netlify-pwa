@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: "%s · Material-Ui + Netlify",
     description: "The start of a new journey",
     siteUrl: "http://localhost:8000", // No trailing slash allowed!
-    image: "src/images/gatsby-icon.png", // Path to your image you placed in the 'static' folder
+    image: "src/assets/gatsby-icon.png", // Path to your image you placed in the 'static' folder
     twitterUsername: "@thnukid",
     facebookPagename: "thnukid",
     ogLocale: "en_US",
@@ -17,8 +17,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
       },
     },
     {
@@ -30,7 +30,7 @@ module.exports = {
         background_color: "#663399",
         theme_color: "#663399",
         display: "standalone",
-        icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
+        icon: "src/assets/app-icon.png", // This path is relative to the root of the site.
       },
     },
     "gatsby-transformer-sharp",
