@@ -1,6 +1,8 @@
 import { Container, Hero, HeroBody, Title } from 'bloomer';
 import { Link } from "gatsby"
 import React from "react"
+import Button from '@material-ui/core/Button';
+
 
 import Image from "../components/image"
 import Layout from "../components/layout"
@@ -13,7 +15,9 @@ const IndexPage = () => (
       <HeroBody>
         <Container hasTextAlign="centered">
           <Title>
-            <Link to="/page-2/">Go to page 2</Link>
+            <Button variant="contained" color="primary">
+              <Link to="/page-2/">Go to page 2</Link>
+            </Button>
           </Title>
           <Image />
         </Container>
