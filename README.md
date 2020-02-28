@@ -7,7 +7,13 @@
   Gatsby's starter with Bulma, Bloomer, Netlify
 </h1>
 
-## :fire: Features
+## :fire: Features 2.0.0
+
+- Removed [Bulma CSS Framework](https://bulma.io/)
+- Removed [Bloomer](https://bloomer.js.org))
+- Added [Material-Ui](https://material-ui.com/)
+
+## :fire: Features 1.0.0
 
 - Based on [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default)
 - Sass preprocessor (with [gatsby-plugin-sass](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sass))
