@@ -7,8 +7,6 @@ require("dotenv").config({
   path: `.env.${activeEnv}`,
 })
 
-const config = require("gatsby-plugin-config")
-
 module.exports = {
   siteMetadata: {
     title: "Gatsby Starter",
