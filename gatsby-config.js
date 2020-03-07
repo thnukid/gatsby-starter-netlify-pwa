@@ -7,6 +7,8 @@ require("dotenv").config({
   path: `.env.${activeEnv}`,
 })
 
+const config = require("gatsby-plugin-config")
+
 module.exports = {
   siteMetadata: {
     title: "Gatsby Starter",
@@ -17,7 +19,7 @@ module.exports = {
     twitterUsername: "@thnukid",
     facebookPagename: "thnukid",
     ogLocale: "en_US",
-    siteLocale: 'en', // Language Tag on <html> element
+    siteLocale: "en", // Language Tag on <html> element
   },
   plugins: [
     "gatsby-plugin-top-layout",
@@ -47,6 +49,36 @@ module.exports = {
       options: {
         precachePages: ["/about/"], // ["/about/", "/projects/*"]
         appendScript: require.resolve("./src/custom-sw-code.js"),
+      },
+    },
+    {
+      resolve: require.resolve("./plugins/gatsby-discogs-source-graqhql"),
+      options: {
+        apis: [
+          {
+            prefix: "SoundCloud",
+            baseUrl: "https://api.soundcloud.com/",
+            endpoints: ["tracks", "users/2346803/tracks"],
+            params: {
+              client_id: process.env.GATSBY_SC_CLIENT_ID,
+              limit: 100,
+              q: "Albert%20Van%20Abbe",
+            },
+            method: "GET",
+          },
+          {
+            prefix: "Discogs",
+            baseUrl: "https://api.discogs.com/artists/1533956/releases",
+            params: {
+              key: process.env.GATSBY_DISCOGS_CONSUMER_KEY,
+              secret: process.env.GATSBY_DISCOGS_CONSUMER_SECRET,
+            },
+            pagination: {
+              contentField: 'releases'
+            },
+            method: "GET",
+          },
+        ],
       },
     },
     "gatsby-transformer-sharp",
