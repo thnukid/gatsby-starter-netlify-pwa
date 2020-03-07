@@ -22,6 +22,11 @@
 - Added [gatsby-plugin-offline 3.x](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-offline)
   * [custom-sw-code.js For Workbox](./src/custom-sw-code.js)
   * Pre-cache files [gatsby-config.js](./gatsby-config.js)
+- Added [DOTENV](#)
+  * `cp .env.development.example .env.development`
+  * `cp .env.production.example .env.production`
+  * `cp .env.staging.example .env.staging`
+  * `ActiveEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"`
 
 ## :fire: Features 1.0.0
 

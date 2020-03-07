@@ -9,3 +9,4 @@ yarn-error.log
 .vscode/
 cypress/screenshots/
 cypress/videos/
+.env.development
