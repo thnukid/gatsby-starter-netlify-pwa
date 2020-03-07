@@ -21,12 +21,12 @@ function Copyright() {
 
 export default function About() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" role="main" id="main">
       <Box my={4}>
         <Typography variant="h4" component="h1" gutterBottom>
           Gatsby v4-beta example
         </Typography>
-        <Link to="/">Go to the main page</Link>
+        <Link to="/">Go to main page</Link>
         <ProTip />
         <Copyright />
       </Box>
