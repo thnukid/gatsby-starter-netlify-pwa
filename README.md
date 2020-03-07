@@ -13,9 +13,12 @@
 - Removed [Bloomer](https://bloomer.js.org)
 
 - Added [Material-Ui](https://material-ui.com/)
-- Added [SEO with OpenGraph + Twitter ](https://github.com/LekoArts/gatsby-starter-prismic) based on `siteMetadata` in `gatsby-config.js`
+- Added [SEO with OpenGraph + Twitter ](https://github.com/LekoArts/gatsby-starter-prismic)
+  * Generated based on the `siteMetadata` tag in the [gatsby-config.js](gatsby-config.js)
 - Added [Cypress Integration Test with Cypress Axe-A11y checker](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-cypress)
 - Added [Redux For Statemanagement](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-redux)
+- Added [Storybook For Visual Component Testing and Design System](https://www.gatsbyjs.org/docs/visual-testing-with-storybook/)
+  * Looks for stories in `src` folder with filename `/\.stories\.js$/`, eg [src/components/example.stories.js](src/components/example.stories.js)
 
 ## :fire: Features 1.0.0
 

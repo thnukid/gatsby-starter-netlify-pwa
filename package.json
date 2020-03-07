@@ -13,13 +13,17 @@
     "cy:open": "cypress open",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "cy:run": "cypress run",
-    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run",
+    "storybook": "NODE_ENV=production start-storybook -s public",
+    "build-storybook": "NODE_ENV=production build-storybook -s public"
   },
   "keywords": [
     "gatsby",
     "material-ui",
     "netlify",
-    "pwa"
+    "pwa",
+    "cypress",
+    "storybook"
   ],
   "dependencies": {
     "@material-ui/core": "^4.9.4",
@@ -46,8 +50,14 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@storybook/addon-actions": "^5.3.14",
+    "@storybook/addon-links": "^5.3.14",
+    "@storybook/addons": "^5.3.14",
+    "@storybook/react": "^5.3.14",
     "@testing-library/cypress": "^5.3.0",
     "axe-core": "^3.5.1",
+    "babel-loader": "^8.0.6",
     "cypress": "^4.0.2",
     "cypress-axe": "^0.5.3",
     "prettier": "^1.17.1",
