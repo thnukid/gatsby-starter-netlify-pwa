@@ -34,7 +34,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-offline",
+      resolve: "gatsby-plugin-offline", // list after gatsby-plugin-manifest
       options: {
         precachePages: ["/about/"], // ["/about/", "/projects/*"]
         appendScript: require.resolve("./src/custom-sw-code.js"),
