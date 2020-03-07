@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import MuiLink from '@material-ui/core/Link';
 import ProTip from '../components/ProTip';
 import Link from '../components/Link';
+import Counter from '../components/Counter';
 
 function Copyright() {
   return (
@@ -26,6 +27,7 @@ export default function About() {
         <Typography variant="h4" component="h1" gutterBottom>
           Gatsby v4-beta example
         </Typography>
+        <Counter />
         <Link to="/">Go to main page</Link>
         <ProTip />
         <Copyright />

@@ -10,10 +10,12 @@
 ## :fire: Features 2.0.0
 
 - Removed [Bulma CSS Framework](https://bulma.io/)
-- Removed [Bloomer](https://bloomer.js.org))
+- Removed [Bloomer](https://bloomer.js.org)
+
 - Added [Material-Ui](https://material-ui.com/)
 - Added [SEO with OpenGraph + Twitter ](https://github.com/LekoArts/gatsby-starter-prismic) based on `siteMetadata` in `gatsby-config.js`
 - Added [Cypress Integration Test with Cypress Axe-A11y checker](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-cypress)
+- Added [Redux For Statemanagement](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-redux)
 
 ## :fire: Features 1.0.0
 
