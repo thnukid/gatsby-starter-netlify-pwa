@@ -33,10 +33,16 @@ module.exports = {
         icon: "src/assets/app-icon.png", // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        precachePages: ["/about/"], // ["/about/", "/projects/*"]
+        appendScript: require.resolve("./src/custom-sw-code.js"),
+      },
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sass",
-    "gatsby-plugin-offline",
     "gatsby-plugin-netlify-cache",
     "gatsby-plugin-netlify",
     "gatsby-plugin-catch-links",
