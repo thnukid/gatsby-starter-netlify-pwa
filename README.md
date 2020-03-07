@@ -13,6 +13,7 @@
 - Removed [Bloomer](https://bloomer.js.org))
 - Added [Material-Ui](https://material-ui.com/)
 - Added [SEO with OpenGraph + Twitter ](https://github.com/LekoArts/gatsby-starter-prismic) based on `siteMetadata` in `gatsby-config.js`
+- Added [Cypress Integration Test with Cypress Axe-A11y checker](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-cypress)
 
 ## :fire: Features 1.0.0
 
