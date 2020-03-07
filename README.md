@@ -19,6 +19,9 @@
 - Added [Redux For Statemanagement](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-redux)
 - Added [Storybook For Visual Component Testing and Design System](https://www.gatsbyjs.org/docs/visual-testing-with-storybook/)
   * Looks for stories in `src` folder with filename `/\.stories\.js$/`, eg [src/components/example.stories.js](src/components/example.stories.js)
+- Added [gatsby-plugin-offline 3.x](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-offline)
+  * [custom-sw-code.js For Workbox](./src/custom-sw-code.js)
+  * Pre-cache files [gatsby-config.js](./gatsby-config.js)
 
 ## :fire: Features 1.0.0
 
