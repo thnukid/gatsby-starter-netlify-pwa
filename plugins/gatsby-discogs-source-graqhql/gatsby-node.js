@@ -1,4 +1,6 @@
 const fetch = require('node-fetch')
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
+
 exports.onPreInit = () => {
   console.log('Testing...')
 }
@@ -153,3 +155,41 @@ const customFormat = str => {
 }
 
 // https://viastudio.com/recursive-asynchronous-calls-with-javascript-and-es6/
+
+// https://www.gatsbyjs.org/docs/preprocessing-external-images/
+// exports.createSchemaCustomization = ({ actions }) => {
+  // const { createTypes } = actions
+  // createTypes(`
+    // type allSoundCloudTracks implements Node {
+      // artwork_url: String!
+    // }
+  // `)
+// }
+
+exports.onCreateNode = async ({
+  node,
+  actions: { createNode },
+  store,
+  cache,
+  createNodeId,
+}) => {
+  // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
+  if (
+    node.internal.type === "SoundCloudTracks" &&
+    node.artwork_url !== null
+  ) {
+    console.log(node.artwork_url);
+    let fileNode = await createRemoteFileNode({
+      url: node.artwork_url.replace(/large/, 't500x500'), // string that points to the URL of the image
+      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+      createNode, // helper function in gatsby-node to generate the node
+      createNodeId, // helper function in gatsby-node to generate the node id
+      cache, // Gatsby's cache
+      store, // Gatsby's redux store
+    })
+    // if the file was created, attach the new node to the parent node
+    if (fileNode) {
+      node.artwork_url_local___NODE = fileNode.id
+    }
+  }
+}
