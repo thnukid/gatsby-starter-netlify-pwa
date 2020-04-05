@@ -1,8 +1,8 @@
-const fetch = require('node-fetch')
+const fetch = require("node-fetch")
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 
 exports.onPreInit = () => {
-  console.log('Testing...')
+  console.log("Testing...")
 }
 exports.sourceNodes = (
   { actions, createNodeId, createContentDigest },
@@ -62,22 +62,29 @@ exports.sourceNodes = (
             createNode(nodeData)
           }
         })
-        .catch(error => console.log('error:', error))
+        .catch(error => console.log("error:", error))
     )
   }
 
   apis.forEach(api => {
     /* check if the api request is an object with parameters */
-    if (typeof api === 'object') {
-      const { prefix, baseUrl, endpoints, params, method = 'GET', pagination } = api
+    if (typeof api === "object") {
+      const {
+        prefix,
+        baseUrl,
+        endpoints,
+        params,
+        method = "GET",
+        pagination,
+      } = api
 
       /* Add some error logging if required config options are mising */
       if (!baseUrl) {
-        console.log('\x1b[31m')
+        console.log("\x1b[31m")
         console.error(
-          'error gatsby-source-rest-api option requires the baseUrl parameter'
+          "error gatsby-source-rest-api option requires the baseUrl parameter"
         )
-        console.log('')
+        console.log("")
         return
       }
 
@@ -86,10 +93,10 @@ exports.sourceNodes = (
       if (params) {
         var esc = encodeURIComponent
         var query = Object.keys(params)
-          .map(k => esc(k) + '=' + esc(params[k]))
-          .join('&')
+          .map(k => esc(k) + "=" + esc(params[k]))
+          .join("&")
 
-        completeUrl = [baseUrl, query].join('?')
+        completeUrl = [baseUrl, query].join("?")
       }
 
       /* object is used and endpoints are set */
@@ -97,13 +104,13 @@ exports.sourceNodes = (
         endpoints.forEach(endpoint => {
           appendSources({
             url:
-              baseUrl[baseUrl.length - 1] === '/'
-                ? `${baseUrl}${[endpoint, query].join('?')}`
-                : `${baseUrl}/${[endpoint, query].join('?')}`,
+              baseUrl[baseUrl.length - 1] === "/"
+                ? `${baseUrl}${[endpoint, query].join("?")}`
+                : `${baseUrl}/${[endpoint, query].join("?")}`,
             endpoint,
             prefix,
             method,
-            pagination
+            pagination,
           })
         })
         return
@@ -115,20 +122,20 @@ exports.sourceNodes = (
         endpoint: baseUrl,
         prefix,
         method,
-        pagination
+        pagination,
       })
       return
     }
 
     /* The default simply expects a api url as a string and no other options */
-    if (typeof api === 'string') {
+    if (typeof api === "string") {
       if (api.length) {
         appendSources({
           url: api,
           endpoint: api,
-          prefix: 'MultiApiSource',
-          method: 'GET',
-          pagination
+          prefix: "MultiApiSource",
+          method: "GET",
+          pagination,
         })
       }
     }
@@ -140,47 +147,42 @@ exports.sourceNodes = (
 // Helper function to fetch data
 const fetchData = async (url, options = {}) => {
   const response = await fetch(`${url}`, options)
-  console.info('[Request]', url)
+  console.info("[Request]", url)
   return await response.json()
 }
 
 //strips special characters and makes string camelcase
 const customFormat = str => {
   return str
-    .replace(/^.*\/\/[^\/]+/, '') //Removes domain
+    .replace(/^.*\/\/[^\/]+/, "") //Removes domain
     .replace(/(?:^\w|[A-Z]|\b\w)/g, word => word.toUpperCase()) //Capitalizes strings
-    .replace(/\//g, '') //Removes slashes
-    .replace(/\-+/g, '') //Removes hyphens
-    .replace(/\s+/g, '') //Removes spaces
+    .replace(/\//g, "") //Removes slashes
+    .replace(/\-+/g, "") //Removes hyphens
+    .replace(/\s+/g, "") //Removes spaces
 }
 
 // https://viastudio.com/recursive-asynchronous-calls-with-javascript-and-es6/
 
 // https://www.gatsbyjs.org/docs/preprocessing-external-images/
 // exports.createSchemaCustomization = ({ actions }) => {
-  // const { createTypes } = actions
-  // createTypes(`
-    // type allSoundCloudTracks implements Node {
-      // artwork_url: String!
-    // }
-  // `)
+// const { createTypes } = actions
+// createTypes(`
+// type allSoundCloudTracks implements Node {
+// artwork_url: String!
+// }
+// `)
 // }
 
-exports.onCreateNode = async ({
-  node,
-  actions: { createNode },
-  store,
-  cache,
-  createNodeId,
-}) => {
-  // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
-  if (
-    node.internal.type === "SoundCloudTracks" &&
-    node.artwork_url !== null
-  ) {
-    console.log(node.artwork_url);
+exports.onCreateNode = async (
+  { node, actions: { createNode }, store, cache, createNodeId },
+  configOptions
+) => {
+  // console.log(configOptions)
+
+  if (node.internal.type === "SoundCloudTracks" && node.artwork_url !== null) {
+    console.log(node.artwork_url)
     let fileNode = await createRemoteFileNode({
-      url: node.artwork_url.replace(/large/, 't500x500'), // string that points to the URL of the image
+      url: node.artwork_url.replace(/large/, "t500x500"), // string that points to the URL of the image
       parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
       createNode, // helper function in gatsby-node to generate the node
       createNodeId, // helper function in gatsby-node to generate the node id
@@ -190,6 +192,22 @@ exports.onCreateNode = async ({
     // if the file was created, attach the new node to the parent node
     if (fileNode) {
       node.artwork_url_local___NODE = fileNode.id
+    }
+  }
+
+  if (node.internal.type === "DiscogsReleases" && node.thumb !== null && node.thumb !== "") {
+    console.log(node.thumb)
+    let fileNode = await createRemoteFileNode({
+      url: node.thumb, // string that points to the URL of the image
+      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+      createNode, // helper function in gatsby-node to generate the node
+      createNodeId, // helper function in gatsby-node to generate the node id
+      cache, // Gatsby's cache
+      store, // Gatsby's redux store
+    })
+    // if the file was created, attach the new node to the parent node
+    if (fileNode) {
+      node.thumb_local___NODE = fileNode.id
     }
   }
 }

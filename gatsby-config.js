@@ -62,23 +62,21 @@ module.exports = {
               limit: 100,
               q: "Albert%20Van%20Abbe",
             },
-            gatsbyImage: {
-              "SoundCloudTracks" : ['artwork_url']
+            method: "GET",
+          },
+          {
+            prefix: "Discogs",
+            baseUrl: "https://api.discogs.com/artists/1533956/",
+            endpoints: ["releases"],
+            params: {
+              key: process.env.GATSBY_DISCOGS_CONSUMER_KEY,
+              secret: process.env.GATSBY_DISCOGS_CONSUMER_SECRET,
+            },
+            pagination: {
+              contentField: 'releases'
             },
             method: "GET",
           },
-          // {
-            // prefix: "Discogs",
-            // baseUrl: "https://api.discogs.com/artists/1533956/releases",
-            // params: {
-              // key: process.env.GATSBY_DISCOGS_CONSUMER_KEY,
-              // secret: process.env.GATSBY_DISCOGS_CONSUMER_SECRET,
-            // },
-            // pagination: {
-              // contentField: 'releases'
-            // },
-            // method: "GET",
-          // },
         ],
       },
     },
