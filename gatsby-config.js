@@ -77,6 +77,14 @@ module.exports = {
             },
             method: "GET",
           },
+          {
+            prefix: "Mixcloud",
+            baseUrl: "https://api.mixcloud.com/discover/albert-van-abbe/latest/",
+            pagination: {
+              contentField: 'data'
+            },
+            method: "GET",
+          },
         ],
       },
     },
