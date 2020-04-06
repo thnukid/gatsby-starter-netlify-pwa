@@ -195,6 +195,22 @@ exports.onCreateNode = async (
     }
   }
 
+  if (node.internal.type === "SoundCloudUsers2346803Tracks" && node.artwork_url !== null) {
+    console.log(node.artwork_url)
+    let fileNode = await createRemoteFileNode({
+      url: node.artwork_url.replace(/large/, "t500x500"), // string that points to the URL of the image
+      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+      createNode, // helper function in gatsby-node to generate the node
+      createNodeId, // helper function in gatsby-node to generate the node id
+      cache, // Gatsby's cache
+      store, // Gatsby's redux store
+    })
+    // if the file was created, attach the new node to the parent node
+    if (fileNode) {
+      node.artwork_url_local___NODE = fileNode.id
+    }
+  }
+
   if (node.internal.type === "DiscogsReleases" && node.thumb !== null && node.thumb !== "") {
     console.log(node.thumb)
     let fileNode = await createRemoteFileNode({
