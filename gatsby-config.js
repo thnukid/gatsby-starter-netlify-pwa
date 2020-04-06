@@ -50,7 +50,7 @@ module.exports = {
       },
     },
     {
-      resolve: require.resolve("./plugins/gatsby-discogs-source-graqhql"),
+      resolve: require.resolve("./plugins/gatsby-artist-source-graphql"),
       options: {
         apis: [
           {
